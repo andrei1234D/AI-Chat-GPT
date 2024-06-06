@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './ChatGPT.css';
-import { FaRegUser } from 'react-icons/fa';
+import { FaRegUser, FaPaperPlane } from 'react-icons/fa';
 import { RiRobot2Line } from 'react-icons/ri';
 
 export default function ChatGPT() {
@@ -69,11 +69,13 @@ export default function ChatGPT() {
     setIsFocused(false);
   };
 
+  const handleSubmitPlane = () => {
+    handleSubmit({ preventDefault: () => {} }); // Simulating the preventDefault behavior
+  };
+
   return (
     <div className="container ">
-      <div className="title text-center text-darkGreen">
-        Find your Desired Documentaries
-      </div>
+      <div className="title text-center text-darkGreen">chat away!</div>
       <div className="chat-container bg-darkGreen mt-2 border-5">
         {responses.length > 0 &&
           responses.map((response, index) => (
@@ -117,6 +119,16 @@ export default function ChatGPT() {
                 resize: 'none', // Prevents manual resizing by the user
                 overflow: 'hidden',
               }}
+            />
+            <FaPaperPlane
+              style={{
+                position: 'fixed',
+                right: '390px',
+                bottom: '44px',
+                cursor: 'pointer',
+                color: '#007BFF', // Example color, change as needed
+              }}
+              onClick={handleSubmitPlane}
             />
           </div>
         </div>
